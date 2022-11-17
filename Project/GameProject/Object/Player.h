@@ -2,7 +2,7 @@
 #include"../Base/Base.h"
 class Player :public Base {
 private:
-	enum {
+	enum{
 		eState_Idle,
 		eState_Attack,
 		eState_Down,
@@ -13,7 +13,6 @@ private:
 	int m_damage_no;
 
 	CImage m_img;
-
 	void StateIdle();
 	void StateAttack();
 	void StateDown();

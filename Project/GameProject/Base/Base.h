@@ -2,12 +2,12 @@
 #include <GLLibrary.h>
 #define GRAVITY (9.8f/20)
 enum {
+	eType_Title,
 	eType_Field,
 	eType_Girl,
 	eType_Player,
 	eType_UI,
 };
-
 
 class Base {
 public:
@@ -21,6 +21,8 @@ public:
 	bool m_kill;
 	static CVector2D m_scroll;
 	CRect	m_rect;
+	double distance;
+	int have_distance;
 
 public:
 	static CVector2D GetScreenPos(const CVector2D& pos);

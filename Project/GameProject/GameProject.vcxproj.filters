@@ -17,6 +17,15 @@
     <ClCompile Include="Game\Title.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AnimData.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\Bat.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Base">
@@ -27,6 +36,9 @@
     </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{af83b9e7-f2ce-4516-9f51-d1669c43d57e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Enemy">
+      <UniqueIdentifier>{08d3b775-7250-4a25-9894-62042d65d9d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +54,16 @@
     <ClInclude Include="Game\Field.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AnimData.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\Bat.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Title.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

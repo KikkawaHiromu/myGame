@@ -7,6 +7,8 @@ private:
 	bool m_flip;
 	int m_damage_no;
 	int hp;
+	int m_cnt;
+	bool m_is_ground;
 
 	CImage m_img;
 

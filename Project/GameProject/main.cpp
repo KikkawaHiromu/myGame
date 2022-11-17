@@ -3,6 +3,7 @@
 #include"Base/Base.h"
 #include"Object/Player.h"
 #include"Object/Girl.h"
+#include"Game/Field.h"
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
@@ -43,10 +44,10 @@ void Init(void)
 	//ボタンの設定
 	CInput::Init();
 	
-	CInput::SetButton(0, CInput::eButton1, 'Z');
-	CInput::SetButton(0, CInput::eButton2, 'X');
-	CInput::SetButton(0, CInput::eButton3, 'C');
-	CInput::SetButton(0, CInput::eButton4, 'V');
+	CInput::SetButton(0, CInput::eButton1, 'W');
+	CInput::SetButton(0, CInput::eButton2, 'A');
+	CInput::SetButton(0, CInput::eButton3, 'D');
+	CInput::SetButton(0, CInput::eButton4, 'S');
 	CInput::SetButton(0, CInput::eButton5, VK_SPACE);
 	CInput::SetButton(0, CInput::eButton10, VK_RETURN);
 	CInput::SetButton(0, CInput::eUp, VK_UP);
@@ -70,11 +71,13 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
-	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png"));
-	ADD_RESOURCE("Girl", CImage::CreateImage("Image/Girl.png"));
+	ADD_RESOURCE("Player_通常", CImage::CreateImage("Image/人魂＿青.png"));
+	ADD_RESOURCE("少女_通常", CImage::CreateImage("Image/少女（仮）.png"));
+	ADD_RESOURCE("m_map01", CImage::CreateImage("Image/夕刻.png"));
 
 	Base::Add(new Player(CVector2D(700, 500),true));
 	Base::Add(new Girl(CVector2D(950, 750), true));
+	Base::Add(new Field());
 }
 
 
