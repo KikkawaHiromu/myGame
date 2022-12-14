@@ -17,14 +17,20 @@
     <ClCompile Include="Game\Title.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AnimData.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Enemy\Bat.cpp">
       <Filter>Object\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Enemy\Snake.cpp">
+      <Filter>Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Fire.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Bullet.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,17 +60,23 @@
     <ClInclude Include="Game\Field.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\AnimData.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Enemy\Bat.h">
       <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Game.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Object\Enemy\Snake.h">
+      <Filter>Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Fire.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Bullet.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,7 +5,10 @@ enum {
 	eType_Title,
 	eType_Field,
 	eType_Girl,
+	eType_Snake,
+	eType_Bullet,
 	eType_Player,
+	eType_Fire,
 	eType_UI,
 };
 

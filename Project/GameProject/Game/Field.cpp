@@ -2,7 +2,7 @@
 Field::Field() :Base(eType_Field) {
 	m_map01 = COPY_RESOURCE("m_map01", CImage);
 
-	m_ground_y = 800;
+	m_ground_y = 930;
 }
 void Field::Draw() {
 	float sc;

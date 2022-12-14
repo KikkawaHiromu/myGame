@@ -5,18 +5,19 @@ Girl::Girl(const CVector2D& p, bool flip):
 	Base(eType_Girl){
 	m_img = COPY_RESOURCE("­—_’Êí", CImage);
 	m_pos = p;
-	m_img.SetCenter(80,160);
-	m_img.SetSize(160, 320);
-	m_rect = CRect(-80, -160, 80, 160);
+	m_img.SetCenter(55,200);
+	m_img.SetSize(110, 400);
+	m_rect = CRect(-55, -200, 55, 0);
 	m_flip = flip;
 	m_is_ground;
 	m_state = eState_Idle;
 	m_damage_no = -1;
 	m_cnt = 200;
+	hp = 100;
 }
 
 void Girl::StateIdle() {
-	const float move_speed = 3;
+	const float move_speed = 1.5;
 	m_pos.x += move_speed;
 	bool move_flag = true;
 	m_flip = false;
@@ -86,8 +87,8 @@ void Girl::Collision(Base* b) {
 	switch (b->m_type) {
 	case eType_Field:
 		if (Field* f = dynamic_cast<Field*>(b)) {
-			if (m_pos.y > f->GetGroundY()) {
-				m_pos.y = f->GetGroundY();
+			if (m_pos.y > f->GetGroundY()-200) {
+				m_pos.y = f->GetGroundY()-200;
 				m_vec.y = 0;
 				m_is_ground = true;
 			}
