@@ -14,9 +14,6 @@
     <ClCompile Include="Game\Field.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Object\Enemy\Snake.cpp">
       <Filter>Object\Enemy</Filter>
     </ClCompile>
@@ -58,12 +55,6 @@
       <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Game\Field.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Game.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Object\Enemy\Snake.h">

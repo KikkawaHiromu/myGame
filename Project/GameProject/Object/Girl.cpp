@@ -52,7 +52,7 @@ Girl::Girl(const CVector2D& p, bool flip):
 	m_state = eState_Idle;
 	m_damage_no = -1;
 	m_cnt = 200;
-	hp = 100;
+	hp = 300;
 }
 
 void Girl::StateIdle() {

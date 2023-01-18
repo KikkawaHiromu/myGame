@@ -84,6 +84,49 @@ void Init(void)
 	ADD_RESOURCE("Bat", CImage::CreateImage("Image/Bat.png",bat_anim_data,500,425));
 	ADD_RESOURCE("Snake", CImage::CreateImage("Image/ŽÖ.png", snake_anim_data, 1000, 700));
 	ADD_RESOURCE("Wolf", CImage::CreateImage("Image/˜T.png", wolf_anim_data,1600,920));
+
+	Base::Add(new Player(CVector2D(700, 500), true));
+	Base::Add(new Girl(CVector2D(950, 700), true));
+	Base::Add(new Field());
+
+	Base::Add(new Bat(CVector2D(2000, 300), true));
+	Base::Add(new Snake(CVector2D(2000, 800), true));
+	Base::Add(new Wolf(CVector2D(2400, 800), true));
+	Base::Add(new Snake(CVector2D(2600, 800), true));
+
+	Base::Add(new Bat(CVector2D(5100, 300), true));
+	Base::Add(new Bat(CVector2D(5200, 300), true));
+	Base::Add(new Snake(CVector2D(5300, 750), true));
+
+	Base::Add(new Bat(CVector2D(6000, 300), true));
+	Base::Add(new Wolf(CVector2D(6100, 750), true));
+	Base::Add(new Snake(CVector2D(6200, 750), true));
+
+	Base::Add(new Wolf(CVector2D(7000, 750), true));
+	Base::Add(new Snake(CVector2D(7050, 750), true));
+	Base::Add(new Bat(CVector2D(7100, 300), true));
+	Base::Add(new Snake(CVector2D(7150, 750), true));
+	Base::Add(new Snake(CVector2D(7200, 750), true));
+
+
+	Base::Add(new Bat(CVector2D(-2000, 300), true));
+	Base::Add(new Snake(CVector2D(-2000, 800), true));
+	Base::Add(new Wolf(CVector2D(-2400, 800), true));
+	Base::Add(new Snake(CVector2D(-2600, 800), true));
+
+	Base::Add(new Bat(CVector2D(-5100, 300), true));
+	Base::Add(new Bat(CVector2D(-5200, 300), true));
+	Base::Add(new Snake(CVector2D(-5300, 750), true));
+
+	Base::Add(new Bat(CVector2D(-6000, 300), true));
+	Base::Add(new Wolf(CVector2D(-6100, 750), true));
+	Base::Add(new Snake(CVector2D(-6200, 750), true));
+
+	Base::Add(new Wolf(CVector2D(-7000, 750), true));
+	Base::Add(new Snake(CVector2D(-7050, 750), true));
+	Base::Add(new Bat(CVector2D(-7100, 300), true));
+	Base::Add(new Snake(CVector2D(-7150, 750), true));
+	Base::Add(new Snake(CVector2D(-7200, 750), true));
 }
 
 
