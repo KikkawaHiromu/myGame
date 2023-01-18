@@ -57,9 +57,9 @@ Girl::Girl(const CVector2D& p, bool flip):
 
 void Girl::StateIdle() {
 	m_img.ChangeAnimation(eAnimIdle);
-	//const float move_speed = 1.5;
-	//m_pos.x += move_speed;
-	//bool move_flag = true;
+	const float move_speed = 1.5;
+	m_pos.x += move_speed;
+	bool move_flag = true;
 	m_flip = false;
 	
 	/*if (--m_cnt <= 0) {

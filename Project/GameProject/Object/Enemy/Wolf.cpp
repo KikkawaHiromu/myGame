@@ -153,7 +153,6 @@ void Wolf::Update() {
 	m_pos += m_vec;
 }
 void Wolf::Draw() {
-	DrawRect();
 	m_img.SetPos(m_pos);
 	m_img.SetFlipH(m_flip);
 	m_img.Draw();

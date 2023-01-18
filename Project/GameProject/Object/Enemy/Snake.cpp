@@ -173,7 +173,6 @@ void Snake::Update() {
 	m_pos += m_vec;
 }
 void Snake::Draw() {
-	DrawRect();
 	m_img.SetPos(m_pos);
 	m_img.SetFlipH(m_flip);
 	m_img.Draw();
