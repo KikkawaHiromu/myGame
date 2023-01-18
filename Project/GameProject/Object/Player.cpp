@@ -2,6 +2,9 @@
 #include"../Game/Field.h"
 #include"Fire.h"
 #include"Bullet.h"
+#include"Enemy/Bat.h"
+#include"Enemy/Snake.h"
+#include"Enemy/Wolf.h"
 
 static TexAnim playerIdleÔ[] = {
 	{ 0,7 },
@@ -17,39 +20,60 @@ static TexAnim playerAttackÔ[] = {
 	{ 0,1 },
 };
 static TexAnim playerDownÔ[] = {
-	{ 0,200 },
+	{ 0,5 },
+	{ 6,5 },
+	{ 0,5 },
+	{ 6,5 },
+	{ 0,5 },
+	{ 6,5 },
+	{ 0,5 },
+	{ 6,5 },
 };
 static TexAnim playerIdleÂ[] = {
-	{ 6,7 },
 	{ 7,7 },
 	{ 8,7 },
+	{ 9,7 },
 };
 static TexAnim playerHideÂ[] = {
-	{ 9,7 },
 	{ 10,7 },
 	{ 11,7 },
+	{ 12,7 },
 };
 static TexAnim playerAttackÂ[] = {
 	{ 0,1 },
 };
 static TexAnim playerDownÂ[] = {
-	{ 0,200 },
+	{ 7,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 6,5 },
 };
 static TexAnim playerIdle‡[] = {
-	{ 12,7 },
-	{ 13,7 },
 	{ 14,7 },
-};
-static TexAnim playerHide‡[] = {
 	{ 15,7 },
 	{ 16,7 },
+};
+static TexAnim playerHide‡[] = {
 	{ 17,7 },
+	{ 18,7 },
+	{ 19,7 },
 };
 static TexAnim playerAttack‡[] = {
 	{ 0,1 },
 };
 static TexAnim playerDown‡[] = {
-	{ 0,200 },
+	{ 14,5 },
+	{ 6,5 },
+	{ 14,5 },
+	{ 6,5 },
+	{ 14,5 },
+	{ 6,5 },
+	{ 14,5 },
+	{ 6,5 },
 };
 TexAnimData player_anim_data[] = {
 	ANIMDATA(playerIdleÔ),
@@ -69,7 +93,7 @@ TexAnimData player_anim_data[] = {
 Player::Player(const CVector2D& p, bool flip) :
 	Base(eType_Player) {
 	m_pos = p;
-	m_rect = CRect(-75, -75, 75, 75);
+	m_rect = CRect(-30, -30, 30, 30);
 	m_cnt;
 	m_flip = flip;
 	m_state = eState_IdleÔ;
@@ -114,7 +138,7 @@ void Player::StateIdleÔ() {
 
 }
 void Player::StateAttackÔ() {
-	Base::Add(new Fire(m_pos + CVector2D(0, 0), m_flip, m_attack_no));
+	Base::Add(new Fire(m_pos + CVector2D(0, 0), m_flip, m_attack_no++));
 	m_state = eState_IdleÔ;
 }
 void Player::StateDownÔ() {
@@ -157,11 +181,14 @@ void Player::StateIdleÂ() {
 	}
 }
 void Player::StateAttackÂ() {
-	Base::Add(new Bullet(m_pos + CVector2D(0, 0), m_ang, m_attack_no));
+	Base::Add(new Bullet(m_pos + CVector2D(0, 0), m_ang, m_attack_no++));
 	m_state = eState_IdleÂ;
 }
 void Player::StateDownÂ() {
-
+	m_img.ChangeAnimation(eAnimDownÂ, false);
+	if (m_img.CheckAnimationEnd()) {
+		m_state = eState_IdleÂ;
+	}
 }
 void Player::StateIdle‡() {
 	if (HOLD(CInput::eButton5)) {
@@ -196,7 +223,10 @@ void Player::StateAttack‡() {
 
 }
 void Player::StateDown‡() {
-
+	m_img.ChangeAnimation(eAnimDown‡, false);
+	if (m_img.CheckAnimationEnd()) {
+		m_state = eState_Idle‡;
+	}
 }
 
 
@@ -244,10 +274,70 @@ void Player::Collision(Base* b)
 	switch (b->m_type) {
 	case eType_Field:
 		if (Field* f = dynamic_cast<Field*>(b)) {
-			if (m_pos.y > f->GetGroundY()-50) {
-				m_pos.y = f->GetGroundY()-50;
+			if (m_pos.y > f->GetGroundY() - 75) {
+				m_pos.y = f->GetGroundY() - 75;
 			}
 		}
 		break;
+	case eType_Wolf:
+		if (Wolf* w = dynamic_cast<Wolf*>(b)) {
+			if (Base::CollisionRect(this, w)) {
+				if (m_damage_no != w->GetAttackNo() && Base::CollisionRect(this, w)) {
+					//“¯‚¶UŒ‚‚Ì˜A‘±ƒ_ƒ[ƒW–h~
+					m_damage_no = w->GetAttackNo();
+					switch (m_state) {
+					case eState_IdleÔ:
+						m_state = eState_DownÔ;
+						break;
+					case eState_IdleÂ:
+						m_state = eState_DownÂ;
+						break;
+					case eState_Idle‡:
+						m_state = eState_Down‡;
+						break;
+					}
+				}
+			}
+		}
+	case eType_Snake:
+		if (Snake* s = dynamic_cast<Snake*>(b)) {
+			if (Base::CollisionRect(this, s)) {
+				if (m_damage_no != s->GetAttackNo() && Base::CollisionRect(this, s)) {
+					//“¯‚¶UŒ‚‚Ì˜A‘±ƒ_ƒ[ƒW–h~
+					m_damage_no = s->GetAttackNo();
+					switch (m_state) {
+					case eState_IdleÔ:
+						m_state = eState_DownÔ;
+						break;
+					case eState_IdleÂ:
+						m_state = eState_DownÂ;
+						break;
+					case eState_Idle‡:
+						m_state = eState_Down‡;
+						break;
+					}
+				}
+			}
+		}
+	case eType_Bat:
+		if (Bat* v = dynamic_cast<Bat*>(b)) {
+			if (Base::CollisionRect(this, v)) {
+				if (m_damage_no != v->GetAttackNo() && Base::CollisionRect(this, v)) {
+					//“¯‚¶UŒ‚‚Ì˜A‘±ƒ_ƒ[ƒW–h~
+					m_damage_no = v->GetAttackNo();
+					switch (m_state) {
+					case eState_IdleÔ:
+						m_state = eState_DownÔ;
+						break;
+					case eState_IdleÂ:
+						m_state = eState_DownÂ;
+						break;
+					case eState_Idle‡:
+						m_state = eState_Down‡;
+						break;
+					}
+				}
+			}
+		}
 	}
 }

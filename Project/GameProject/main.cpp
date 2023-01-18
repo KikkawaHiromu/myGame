@@ -5,7 +5,9 @@
 #include"Object/Girl.h"
 #include"Game/Field.h"
 #include"Object/fire.h"
+#include"Object/Enemy/Bat.h"
 #include"Object/Enemy/Snake.h"
+#include"Object/Enemy/Wolf.h"
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
@@ -32,7 +34,6 @@ void MainLoop(void) {
 	//ゲーム中の動きはここに書く
 	//ゲーム中はこの関数_を1秒間に60回呼び出している
 	//--------------------------------------------------------------
-	
 
 
 
@@ -74,15 +75,20 @@ void Init(void)
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/人魂.png",player_anim_data,1000,750));
-	ADD_RESOURCE("Fire", CImage::CreateImage("Image/炎.png"));
+	ADD_RESOURCE("Fire", CImage::CreateImage("Image/炎.png",fire_anim_data,1000,750));
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
-	ADD_RESOURCE("少女_通常", CImage::CreateImage("Image/少女（仮）.png"));
+	ADD_RESOURCE("boseki", CImage::CreateImage("Image/墓石.png"));
+	ADD_RESOURCE("Girl", CImage::CreateImage("Image/少女（仮）.png",girl_anim_data,250,667));
 	ADD_RESOURCE("m_map01", CImage::CreateImage("Image/夕刻.png"));
+	ADD_RESOURCE("Bat", CImage::CreateImage("Image/Bat.png",bat_anim_data,500,425));
 	ADD_RESOURCE("Snake", CImage::CreateImage("Image/蛇.png", snake_anim_data, 1000, 700));
+	ADD_RESOURCE("Wolf", CImage::CreateImage("Image/狼.png", wolf_anim_data,1600,920));
 
 	Base::Add(new Player(CVector2D(700, 500),true));
-	Base::Add(new Girl(CVector2D(950, 200), true));
-	Base::Add(new Snake(CVector2D(1600, 200), true));
+	Base::Add(new Girl(CVector2D(950, 700), true));
+	Base::Add(new Snake(CVector2D(1600, 850), true));
+	Base::Add(new Wolf(CVector2D(1700, 850), true));
+	Base::Add(new Bat(CVector2D(1000, 300), true));
 	Base::Add(new Field());
 }
 
