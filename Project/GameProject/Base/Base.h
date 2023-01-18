@@ -11,6 +11,8 @@ enum {
 	eType_Bullet,
 	eType_Player,
 	eType_Fire,
+	eType_Scene,
+	eType_Goal,
 	eType_UI,
 };
 

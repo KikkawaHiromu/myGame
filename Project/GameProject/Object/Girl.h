@@ -34,5 +34,7 @@ public:
 	void Update();
 	void Draw();
 	void Collision(Base* b);
-
+	int GetState() {
+		return m_state;
+	}
 };

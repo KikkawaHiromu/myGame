@@ -14,9 +14,6 @@
     <ClCompile Include="Game\Field.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Game</Filter>
     </ClCompile>

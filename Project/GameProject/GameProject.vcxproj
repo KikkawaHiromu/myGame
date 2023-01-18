@@ -14,7 +14,6 @@
     <ClCompile Include="Base\Base.cpp" />
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Game\Title.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object\Bullet.cpp" />
     <ClCompile Include="Object\Enemy\Bat.cpp" />

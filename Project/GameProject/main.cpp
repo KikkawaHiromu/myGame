@@ -78,18 +78,12 @@ void Init(void)
 	ADD_RESOURCE("Fire", CImage::CreateImage("Image/âä.png",fire_anim_data,1000,750));
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
 	ADD_RESOURCE("boseki", CImage::CreateImage("Image/ïÊêŒ.png"));
+	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Girl", CImage::CreateImage("Image/è≠èóÅiâºÅj.png",girl_anim_data,250,667));
 	ADD_RESOURCE("m_map01", CImage::CreateImage("Image/ó[çè.png"));
 	ADD_RESOURCE("Bat", CImage::CreateImage("Image/Bat.png",bat_anim_data,500,425));
 	ADD_RESOURCE("Snake", CImage::CreateImage("Image/é÷.png", snake_anim_data, 1000, 700));
 	ADD_RESOURCE("Wolf", CImage::CreateImage("Image/òT.png", wolf_anim_data,1600,920));
-
-	Base::Add(new Player(CVector2D(700, 500),true));
-	Base::Add(new Girl(CVector2D(950, 700), true));
-	Base::Add(new Snake(CVector2D(1600, 850), true));
-	Base::Add(new Wolf(CVector2D(1700, 850), true));
-	Base::Add(new Bat(CVector2D(1000, 300), true));
-	Base::Add(new Field());
 }
 
 
